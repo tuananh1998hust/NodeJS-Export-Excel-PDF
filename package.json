@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "start": "babel-node src/index.js",
-    "dev": "nodemon src/index.js --exec babel-node"
+    "dev": "nodemon src/index.js --exec babel-node",
+    "test": "mocha -t 15000 --require babel-core/register --exit"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -18,6 +19,11 @@
     "pdfkit": "^0.11.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.1"
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "nodemon": "^2.0.1",
+    "nyc": "^14.1.1",
+    "supertest": "^4.0.2"
   }
 }

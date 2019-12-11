@@ -2,7 +2,7 @@ import express from 'express';
 import xl from 'excel4node';
 import PDFDocument from 'pdfkit';
 
-const app = express();
+export const app = express();
 const wb = new xl.Workbook();
 
 app.use(express.static('public'));
