@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "NodeJS Server Export Excel Data",
+  "main": "src/index.js",
+  "author": "Tuan Anh <tuananh1998.hust@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "babel-node src/index.js",
+    "dev": "nodemon src/index.js --exec babel-node"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "excel4node": "^1.7.2",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "pdfkit": "^0.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}

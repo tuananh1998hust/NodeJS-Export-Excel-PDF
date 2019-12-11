@@ -1,0 +1,10 @@
+version: "3.4"
+services:
+  node-server:
+    container_name: node-server
+    build: .
+    command: yarn dev
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/app

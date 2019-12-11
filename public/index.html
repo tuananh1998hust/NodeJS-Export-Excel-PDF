@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Export Excel NodeJS</h1>
+    <button id="btn-export-excel">Export Excel</button>
+    <button id="btn-export-pdf">Export PDF</button>
+  </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const btnExcel = document.getElementById('btn-export-excel');
+    const btnPDF = document.getElementById('btn-export-pdf');
+    btnExcel.addEventListener('click', handleClickExportExcel);
+    btnPDF.addEventListener('click', handleClickExportPDF);
+
+    function handleClickExportExcel() {
+      axios({
+        url: '/api/v1/excel',
+        method: 'GET',
+        responseType: 'blob'
+      }).then(res => {
+        const url = window.URL.createObjectURL(new Blob([res.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'Excel.xlsx');
+        document.body.appendChild(link);
+        link.click();
+      });
+    }
+
+    function handleClickExportPDF() {
+      axios({
+        url: '/api/v1/pdf',
+        method: 'GET',
+        responseType: 'blob'
+      }).then(res => {
+        const url = window.URL.createObjectURL(new Blob([res.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'pdf.pdf');
+        document.body.appendChild(link);
+        link.click();
+      });
+    }
+  </script>
+</html>
